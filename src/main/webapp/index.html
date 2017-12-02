@@ -1,133 +1,55 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  		
-  	    <meta name="author" content="Julie Chen">
-  		<meta name="description" content="Office365 Productivity Hachathon">
 
-        <title>License Sharing</title>
-        <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <!-- link rel="stylesheet" href="css/login.css" -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
 
+<body>
+<div id="paypal-button-container"></div>
 
-        <script src="https://use.fontawesome.com/72bfa4e01c.js"></script>
+<script>
+        paypal.Button.render({
 
-    </head>
-      
-    <body>
-    <div class="container" id="wrap">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-            <div class="container-fluid">
-            <!-- div class="navbar-header">
-                <div style="border-radius: 8px; padding: 5px; font-family: Times New Roman; font-size: 15px; text-align: center; background-color:white; width:149px; height:34px; display: block;"><strong>License Sharing App</strong></div>
-            </div -->
-            <a class="navbar-brand" href="#">License Sharing</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            env: 'sandbox', // sandbox | production
 
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Setting</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                production: '<insert production client id>'
+            },
 
-            </div>
-            </div>
-        </nav>
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
 
-    <div class="card-columns">
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title that wraps to a new line</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
-        <div class="card p-3">
-            <blockquote class="blockquote mb-0 card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer class="blockquote-footer">
-                    <small class="text-muted">
-                        Someone famous in <cite title="Source Title">Source Title</cite>
-                    </small>
-                </footer>
-            </blockquote>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card bg-primary text-white text-center p-3">
-            <blockquote class="blockquote mb-0">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-                <footer class="blockquote-footer">
-                    <small>
-                        Someone famous in <cite title="Source Title">Source Title</cite>
-                    </small>
-                </footer>
-            </blockquote>
-        </div>
-        <div class="card text-center">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img" src="..." alt="Card image">
-        </div>
-        <div class="card p-3 text-right">
-            <blockquote class="blockquote mb-0">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer class="blockquote-footer">
-                    <small class="text-muted">
-                        Someone famous in <cite title="Source Title">Source Title</cite>
-                    </small>
-                </footer>
-            </blockquote>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
 
-    </div>
-    <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script -->
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: '0.01', currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
 
-    <script>
-	(function (k, a, n, d, y) {
-	s = a.createElement(n);
-	y = a.getElementsByTagName(n)[0];
-	s.async = 1;
-	s.src = d;
-	y.parentNode.insertBefore(s, y)
-	})(window, document, 'script', '//www.kandy.io/javascripts/kandy/widgets/Concierge.js', 'kandy');
-	</script>
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
 
-    </body>
-</html>
+        }, '#paypal-button-container');
+
+    </script>
+</body>
