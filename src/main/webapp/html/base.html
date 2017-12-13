@@ -17,10 +17,18 @@
 
 	<div ng-app="licenseSharingApp" id="wrap">
 
-		<div ng-view></div>
+		<p>Go to www.office.com</p>
+		<p>User Login = "tester@pwchen.onmicrosoft.com"</p>
+		<p>Password = "TesterHack3"</p>
+		<p>Once clock starts, you can log in.</p>
+		<p>Once clock stops, you can no longer access the product.</p>
+		<p>Save your work before the clock stops!</p>
 
-	<div class="clock" style="margin:2em;"></div>
-	<div class="message"></div>
+		<div class="btn-group" ng-controller="MainContoller">
+		<button type="button" ng-click="ChangeView()" class="btn btn-primary">Start Clock</button>
+		</div>
+
+		<div ng-view></div>
 
 	</div>
 
@@ -30,6 +38,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
+	<script src="../scripts/licenseSharingApp.js"></script>
+	<script src="../scripts/licenseShareController.js"></script>
+	<script src="../scripts/MainController.js"></script>
 	<script src="../scripts/flipclock.js"></script>
 
 	<script type="text/javascript">
@@ -48,7 +59,7 @@
 		        }
 		    });
 				    
-		    clock.setTime(10000);
+		    clock.setTime(1000);
 		    clock.setCountdown(true);
 		    clock.start();
 
