@@ -17,15 +17,17 @@
 
 	<div ng-app="licenseSharingApp" id="wrap">
 
-		<p>Go to www.office.com</p>
-		<p>User Login = "tester@pwchen.onmicrosoft.com"</p>
-		<p>Password = "TesterHack3"</p>
-		<p>Once clock starts, you can log in.</p>
-		<p>Once clock stops, you can no longer access the product.</p>
-		<p>Save your work before the clock stops!</p>
-
-		<div class="btn-group" ng-controller="MainContoller">
-			<a href="#/licenseshare">Start Clock</a>
+		<div class="card">
+			<h3 class="card-header">Instructions</h3>
+			<div class="card-block">
+				<h4 class="card-title">Once clock stops, you can no longer access the product.</h4>
+				<p class="card-text">1) Click "Start Clock" button start the Timer.</p>
+				<p class="card-text">2) Go to www.office.com and log in.</p>
+				<p class="card-text">3) User Login = "tester@pwchen.onmicrosoft.com"</p>
+				<p class="card-text">4) User Password = "TesterHack3"</p>
+				<p class="card-text">5) Save your work before the clock stops!</p>
+				<a href="#/licenseshare" class="btn btn-primary">Start Clock</a>
+			</div>
 		</div>
 
 		<div ng-view></div>
