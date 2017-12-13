@@ -25,7 +25,7 @@
 		<p>Save your work before the clock stops!</p>
 
 		<div class="btn-group" ng-controller="MainContoller">
-		<button type="button" ng-click="#licenseshare" class="btn btn-primary">Start Clock</button>
+			<a href="#/licenseshare">Start Clock</a>
 		</div>
 
 		<div ng-view></div>
@@ -42,29 +42,6 @@
 	<script src="../scripts/licenseShareController.js"></script>
 	<script src="../scripts/MainController.js"></script>
 	<script src="../scripts/flipclock.js"></script>
-
-	<script type="text/javascript">
-		var clock;
-		
-		$(document).ready(function() {
-			var clock;
-
-			clock = $('.clock').FlipClock({
-		        clockFace: 'DailyCounter',
-		        autoStart: false,
-		        callbacks: {
-		        	stop: function() {
-		        		$('.message').html('The clock has stopped! This User account will be deleted. Save your work!')
-		        	}
-		        }
-		    });
-				    
-		    clock.setTime(1000);
-		    clock.setCountdown(true);
-		    clock.start();
-
-		});
-	</script>
 	
 	</body>
 </html>

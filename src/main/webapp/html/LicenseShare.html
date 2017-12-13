@@ -5,4 +5,27 @@
     <div class="clock" style="margin:2em;"></div>
     <div class="message"></div>
 
+    <script type="text/javascript">
+		var clock;
+
+		$(document).ready(function() {
+			var clock;
+
+			clock = $('.clock').FlipClock({
+		        clockFace: 'DailyCounter',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('The clock has stopped! This User account will be deleted. Save your work!')
+		        	}
+		        }
+		    });
+
+		    clock.setTime(1000);
+		    clock.setCountdown(true);
+		    clock.start();
+
+		});
+	</script>
+
 </div>
