@@ -1,6 +1,6 @@
 var app = angular.module('licenseSharingApp');
-app.controller('MainContoller', function ($scope, $location) {
+app.controller("LicenseShareController", ['$scope', '$rootScope', '$http', function(sc, rs, hp) {
     $scope.ChangeView = function () {
         $location.url('/licenseshare');
     }
-});
+}]);
