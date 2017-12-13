@@ -94,9 +94,9 @@
 .flip-clock-wrapper ul li a {
   display: block;
   height: 100%;
-  -webkit-perspective: 200px;
-  -moz-perspective: 200px;
-  perspective: 200px;
+  -webkit-perspective: 100px;
+  -moz-perspective: 100px;
+  perspective: 100px;
   margin: 0 !important;
   overflow: visible !important;
   cursor: default !important; }
