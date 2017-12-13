@@ -1,14 +1,36 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="../css/flipclock.css">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<meta name="author" content="Julie Chen">
+	<meta name="description" content="Hack Productivity 3">
 
-		<script src="../scripts/flipclock.js"></script>
+	<title>License Sharing</title>
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/flipclock.css">
+
 	</head>
 	<body>
+
+	<div ng-app="licenseSharingApp" id="wrap">
+
+		<div ng-view></div>
+
 	<div class="clock" style="margin:2em;"></div>
 	<div class="message"></div>
+
+	</div>
+
+	<!-- script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+
+	<script src="../scripts/flipclock.js"></script>
 
 	<script type="text/javascript">
 		var clock;
@@ -26,7 +48,7 @@
 		        }
 		    });
 				    
-		    clock.setTime(60000);
+		    clock.setTime(10000);
 		    clock.setCountdown(true);
 		    clock.start();
 
