@@ -1,6 +1,5 @@
 angular.module('licenseSharingApp', ['ngRoute'])
-  .config(['$routeProvider',
-    function($routeProvider) {
+  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
             when('/licenseshare',
             {
