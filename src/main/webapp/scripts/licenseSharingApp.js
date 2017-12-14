@@ -3,7 +3,7 @@ angular.module('licenseSharingApp', ['ngRoute'])
         $routeProvider.
             when('/licenseshare',
             {
-                templateUrl: '/html/LicenseShare.html',
+                templateUrl: 'html/LicenseShare.html',
                 controllerUrl: 'LicenseShareController'
             }).
             otherwise({ redirectTo: '/' });
