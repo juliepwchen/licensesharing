@@ -25,7 +25,7 @@
 				<p class="card-text">2) Go to www.office.com and log in.</p>
 				<p class="card-text">3) Type in username = "tester@pwchen.onmicrosoft.com", password = "TesterHack3".</p>
 				<p class="card-text">4) Save your work before the clock stops!</p>
-				<a href="#licenseshare" class="btn btn-primary">Start Clock</a>
+				<a href="#!licenseshare" class="btn btn-primary">Start Clock</a>
 			</div>
 		</div>
 
@@ -39,10 +39,17 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
-	<script src="../scripts/licenseSharingApp.js"></script>
-	<script src="../scripts/licenseShareController.js"></script>
-	<script src="../scripts/MainController.js"></script>
 	<script src="../scripts/flipclock.js"></script>
+
+	<script>
+var app = angular.module("licenseSharingApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/licenseshare", {
+        templateUrl : "html/LicenseShare.html"
+    })
+});
+    </script>
 	
 	</body>
 </html>
