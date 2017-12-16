@@ -1,4 +1,5 @@
 ﻿var msalconfig = {
-    clientID: "52da2b0b-3a18-41b3-8059-313b3f322ee2",
-    redirectUri: location.origin
+    clientID: "6034f470-79b2-4043-a51a-343c65c57009",
+    redirectUri: "http://licensesharing-licensesharing.b9ad.pro-us-east-1.openshiftapps.com/html/base.html#!/license"
+    //redirectUri: location.origin
 };
