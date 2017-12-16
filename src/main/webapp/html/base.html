@@ -24,7 +24,7 @@
 				<p class="card-text">2) Type in username = "tester@pwchen.onmicrosoft.com", password = "TesterHack3".</p>
 				<h4 class="card-title">Once clock stops, you can no longer access the product.</h4>
 				<h4 class="card-title">Save your work before the clock stops!</h4>
-				<a href="#!licenseshare" class="btn btn-primary" ng-disabled="checked">Start Clock</a>
+				<a href="#!licenseshare" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
 			</div>
 		</div>
 
@@ -39,14 +39,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
 	<!-- script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script -->
-	<script type="text/javascript" src="../scripts/msalconfig.js"></script>
+	<!-- script type="text/javascript" src="../scripts/msalconfig.js"></script -->
 
 	<!-- IE support: add promises polyfill before msal.js  -->
 	<!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
 
-	<script type="text/javascript" src="../scripts/app.js"></script>
+	<!-- script type="text/javascript" src="../scripts/app.js"></script -->
 
 	<script src="../scripts/flipclock.js"></script>
 
@@ -67,7 +67,8 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
      url: 'https://login.microsoftonline.com/pwchen.onmicrosoft.com/oauth2/v2.0/token',
      headers: {
        'Content-Type': 'application/x-www-form-urlencoded',
-       'Host': 'login.microsoftonline.com'
+       'Host': 'login.microsoftonline.com',
+       'Access-Control-Allow-Origin': '*'
      },
      data: 'client_id=6034f470-79b2-4043-a51a-343c65c57009&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=lxiYXAI0##mnjrVAR3643]!&grant_type=client_credentials'
   }
