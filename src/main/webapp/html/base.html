@@ -75,8 +75,8 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
   $http(req)
   .then(function successCallback(response) {
 
-    console.log(response);
-    callGraphApi2(response);
+    alert(response);
+    //callGraphApi2(response);
 
   }, function errorCallback(response){
 
