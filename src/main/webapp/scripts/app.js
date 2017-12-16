@@ -24,6 +24,14 @@ window.onload = function () {
     }
 }
 
+/**
+ * Call the Microsoft Graph API and display the results on the page
+ */
+function callGraphApi2(token) {
+
+  callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
+
+}
 
 /**
  * Call the Microsoft Graph API and display the results on the page

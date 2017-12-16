@@ -24,7 +24,7 @@
 				<p class="card-text">2) Type in username = "tester@pwchen.onmicrosoft.com", password = "TesterHack3".</p>
 				<h4 class="card-title">Once clock stops, you can no longer access the product.</h4>
 				<h4 class="card-title">Save your work before the clock stops!</h4>
-				<a href="#!licenseshare" class="btn btn-primary" ng-disabled="checked" onclick="callGraphApi()">Start Clock</a>
+				<a href="#!licenseshare" class="btn btn-primary" ng-disabled="checked">Start Clock</a>
 			</div>
 		</div>
 
@@ -59,9 +59,32 @@ app.config(function($routeProvider) {
         controller : "MainController"
     })
 });
-app.controller("MainController", function ($scope) {
-    $scope.checked = false;
-});
+
+app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, rs, hp) {
+
+  var req = {
+     method: 'POST',
+     url: 'https://login.microsoftonline.com/pwchen.onmicrosoft.com/oauth2/v2.0/token',
+     headers: {
+       'Content-Type': 'application/x-www-form-urlencoded',
+       'Host': 'login.microsoftonline.com'
+     },
+     data: 'client_id=52da2b0b-3a18-41b3-8059-313b3f322ee2&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=doZUBW90?@)baqahNMD010)&grant_type=client_credentials'
+  }
+
+  $http(req)
+  .then(function successCallback(response) {
+
+    console.log(response);
+    callGraphApi2(response);
+
+  }, function errorCallback(response){
+
+  });
+
+
+}]);
+
     </script>
 	
 	</body>
