@@ -38,7 +38,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
-	<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script>
+	<!-- script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script -->
 	<script type="text/javascript" src="../scripts/msalconfig.js"></script>
 
 	<!-- IE support: add promises polyfill before msal.js  -->
@@ -72,7 +72,7 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
      data: 'client_id=6034f470-79b2-4043-a51a-343c65c57009&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=lxiYXAI0##mnjrVAR3643]!&grant_type=client_credentials'
   }
 
-  $http(req)
+  hp(req)
   .then(function successCallback(response) {
 
     alert(response);
