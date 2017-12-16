@@ -126,7 +126,7 @@ function loginCallback(errorDesc, token, error, tokenType) {
 function callWebApiWithToken(endpoint, token, responseElement, showTokenElement) {
     var headers = new Headers();
     var bearer = "Bearer " + token;
-    headers.append("Authorization", bearer);
+    headers.append("c", bearer);
     var options = {
         method: "GET",
         headers: headers
