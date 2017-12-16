@@ -1,6 +1,18 @@
 <div class="container">
 
-    <p>License Share View</p>
+    <div id="errorMessage" class="text-danger"></div>
+    <div class="hidden">
+        <h3>Graph API Call Response</h3>
+        <pre class="well" id="graphResponse"></pre>
+    </div>
+    <div class="hidden">
+        <h3>Access Token</h3>
+        <pre class="well" id="accessToken"></pre>
+    </div>
+    <div class="hidden">
+        <h3>ID Token Claims</h3>
+        <pre class="well" id="userInfo"></pre>
+    </div>
 
     <div class="clock" style="margin:2em;"></div>
     <div class="message"></div>
@@ -21,7 +33,7 @@
 		        }
 		    });
 
-		    clock.setTime(1000);
+		    clock.setTime(100);
 		    clock.setCountdown(true);
 		    clock.start();
 
