@@ -103,7 +103,15 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
      }
   };
 
-  hp(req)
+  var req3 = {
+     method: "GET",
+     url: "https://graph.microsoft.com/v1.0/user/bce4a0bd-2c22-402b-9f67-cfdd65ba1fee",
+     headers: {
+       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6M01YTTdSVS1yLUFvOGN5bmJjRlRjVWJsd3N6bmJRLWd1eE1BMDlocWxBbTA4dk9RLWFFdm1teEROT3Zfel9FVlNNeTVnell1YlljYW04LTRHZU5fZENBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDY2MjM1LCJuYmYiOjE1MTM0NjYyMzUsImV4cCI6MTUxMzQ3MDEzNSwiYWlvIjoiWTJOZ1lOZys5OEFPNXZXWFBtZHNGamE3OFRYcU9nQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiNzdlU0oyTGoza09qdEZ4VUhHZ1VBQSIsInZlciI6IjEuMCJ9.fivYehOEfdcsWm_0w18gwK7AR4NzwVS3d3DBFb4T4liO-GqXfUtjmpkcZRE5OUp7tQTUL4aKCNFQ_C9o7dwNJ-5oErto00oczPazZiMCy71Tv96VMMFpqoJ0lrf_GbkVEvsja3SXzbATCwJX4rZ3Dftarb225o-NV0vVPqO6CwToZ65NsTAKriYOR2j45H1Mvqahtu0qj71otF-WqXD37xdRx9_MsEvylw4kQjxzhPHasJ_vUd_Dtg7YZfhIxTP6WXbz89je5x-FhnCu5mQhK1BGyAmKbdNa-eRpuWFtUiWn3Ub6loDdQix1Sy-wShpHZ7bh0jngOkvb8YZyVhM_BA"
+     }
+  };
+
+  hp(req3)
   .then(function successCallback(response) {
 
     alert("Success!");
