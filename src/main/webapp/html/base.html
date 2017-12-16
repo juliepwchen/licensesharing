@@ -63,11 +63,12 @@ app.config(function($routeProvider) {
 app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, rs, hp) {
 
   var req = {
-     method: 'POST',
-     url: 'https://graph.microsoft.com/v1.0/users',
+     method: "POST",
+     url: "https://graph.microsoft.com/v1.0/users",
      headers: {
-       'Content-Type': 'application/json',
-       'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6bWhDWVdJYXlQRmE5UEI5SmhlR1c2TldUZW4wSnNLQ3F5LWdMeGpEdkhoMDBiaXVueWxhWUpTTUNaQ2tuazVYVHZ5WXdRQXZCWUVvZ3FHdGZWUlJ3QVNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDUzOTY4LCJuYmYiOjE1MTM0NTM5NjgsImV4cCI6MTUxMzQ1Nzg2OCwiYWlvIjoiWTJOZ1lEaTd6dTZFL0dMMmh6bmYwdjF1TjIvUEF3QT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiNkYxa1YwQ1Ria2VFZFZ0aHJvOFVBQSIsInZlciI6IjEuMCJ9.NYa5sX6FToi5PNNgzszyO3_eEXX1FDXchXqkrBexwC2-asvZ4Q_WaY4pDG2o83aBJhf8u6ssM2HhLqpV-MIy-6vRU0T9Br-HjyFIUTetpVUAB3TzcpnxaBEg62Ym1Kcgo9hC12pa15aQxhNYnU58jEEdLMGNpXF2j4FYAuMLlHmgkX9atPxAsMQUew2uoyVglCUEndJZuvVIwO5eLgZ1DKeKSkacWU7MtqtX0KpAZqlE3Mi4KtGI390GRaiXMewt16e4eqm0-mpqSiYo6FA8rNOeI6nIm7vDFeRJaHb-J59klIPtbkBzTsbVbmK3iICu0bOnZ6Q6-4xepxyNPsnrsw'
+       'Content-Type': "application/json",
+       'Host' : "graph.microsoft.com",
+       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6bWhDWVdJYXlQRmE5UEI5SmhlR1c2TldUZW4wSnNLQ3F5LWdMeGpEdkhoMDBiaXVueWxhWUpTTUNaQ2tuazVYVHZ5WXdRQXZCWUVvZ3FHdGZWUlJ3QVNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDUzOTY4LCJuYmYiOjE1MTM0NTM5NjgsImV4cCI6MTUxMzQ1Nzg2OCwiYWlvIjoiWTJOZ1lEaTd6dTZFL0dMMmh6bmYwdjF1TjIvUEF3QT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiNkYxa1YwQ1Ria2VFZFZ0aHJvOFVBQSIsInZlciI6IjEuMCJ9.NYa5sX6FToi5PNNgzszyO3_eEXX1FDXchXqkrBexwC2-asvZ4Q_WaY4pDG2o83aBJhf8u6ssM2HhLqpV-MIy-6vRU0T9Br-HjyFIUTetpVUAB3TzcpnxaBEg62Ym1Kcgo9hC12pa15aQxhNYnU58jEEdLMGNpXF2j4FYAuMLlHmgkX9atPxAsMQUew2uoyVglCUEndJZuvVIwO5eLgZ1DKeKSkacWU7MtqtX0KpAZqlE3Mi4KtGI390GRaiXMewt16e4eqm0-mpqSiYo6FA8rNOeI6nIm7vDFeRJaHb-J59klIPtbkBzTsbVbmK3iICu0bOnZ6Q6-4xepxyNPsnrsw"
      },
      data: {
   		"accountEnabled": true,
@@ -92,17 +93,17 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
   		"mobilePhone": "+1 206 555 0110",
   		"usageLocation": "US",
   		"userPrincipalName": "Hack3@pwchen.onmicrosoft.com"
-}
+	}
   }
 
   hp(req)
   .then(function successCallback(response) {
 
-    alert("Success!";
+    alert("Success!");
     //callGraphApi2(response);
 
-  }, function errorCallback(response){
-    alert("Error!";
+  }, function errorCallback(response) {
+    alert("Error!");
   });
 
 
