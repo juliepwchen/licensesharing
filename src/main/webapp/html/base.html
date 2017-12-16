@@ -92,10 +92,18 @@ app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, 
   		"mobilePhone": "+1 206 555 0110",
   		"usageLocation": "US",
   		"userPrincipalName": "Hack3@pwchen.onmicrosoft.com"
-	}
-  }
+	  }
+  };
 
-  hp(req)
+  var req2 = {
+     method: "GET",
+     url: "https://graph.microsoft.com/v1.0/me/",
+     headers: {
+       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6bmJCczBMcDFEeWwwdmxhaDZxNlo0dHBWWmtNQlRPT3d1ajlveTU4SUVDOWtYVkZxSUNpZTk0LTB3NUFtZ1ZLWVBLdmgwUF9ORURGbWVtM0N1ZGN0bkNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDU3MDgzLCJuYmYiOjE1MTM0NTcwODMsImV4cCI6MTUxMzQ2MDk4MywiYWlvIjoiWTJOZ1lPaGxXT0N6eG1MdWsrZVQvaGQzM2VlWUNBQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiR3pKSll6ZTBNa2V2eFdSNFEyUVVBQSIsInZlciI6IjEuMCJ9.EjqP09XjgzrLUo2s2j7Jmpn28cGVeo2WGuLK8-buTgyNNDD7xTFpnulIxci62PbuMq_HFsXIJkr76qtxqUDeHs9IsnNpKH-6YmDeOkjirK97fZejaeNZH0czPrO9KdcGqpOrkocecMYSDnyKnf-9lAoaXUvjY-JgLAdzg5MBk0lv_R8krvAI88dPQ95j99Zbm8ljae6U0kZ2uAU9oD3V5qbMBGkGJAOVWr6Q4ybYzZtVtsAYwvdoK78nfoC9pIUUoWFuUrNQcA332w0dSvQUQrP16jCaZnCSsCRKY5bTOip_sogkTaCOGgKJtwF95piqy_SSjirsm3eALKDImMwS6A"
+     }
+  };
+
+  hp(req2)
   .then(function successCallback(response) {
 
     alert("Success!");
