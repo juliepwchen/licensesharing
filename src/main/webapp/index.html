@@ -77,13 +77,13 @@
   app.config(function($routeProvider) {
         $routeProvider
         .when("/", {
-          templateUrl : "main.html"
+          templateUrl : "html/main.html"
         }).
         when("/notices", {
-          templateUrl : "notices.html"
+          templateUrl : "html/notices.html"
         }).
         when("/organizationA", {
-          templateUrl : "organizationA.html"
+          templateUrl : "html/organizationA.html"
         }).
         otherwise({ redirectTo: '/' });
   });
