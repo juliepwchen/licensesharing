@@ -57,7 +57,8 @@ app.config(function($routeProvider) {
     .when("/licenseshare", {
         templateUrl : "LicenseShare.html",
         controller : "MainController"
-    })
+    }).
+    otherwise({ redirectTo: '/' });
 });
 
 app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, rs, hp) {
