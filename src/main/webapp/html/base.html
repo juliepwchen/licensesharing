@@ -24,7 +24,7 @@
 				<p class="card-text">2) Type in username = "tester@pwchen.onmicrosoft.com", password = "TesterHack3".</p>
 				<h4 class="card-title">Once clock stops, you can no longer access the product.</h4>
 				<h4 class="card-title">Save your work before the clock stops!</h4>
-				<a href="#!timer" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
+				<a href="#!timer" onclick="myFunction()" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
 			</div>
 		</div>
 
@@ -49,6 +49,15 @@
 	<!-- script type="text/javascript" src="../scripts/app.js"></script -->
 
 	<script src="../scripts/flipclock.js"></script>
+
+	<button onclick="myFunction()">Try it</button>
+
+	<script>
+function myFunction() {
+    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+    myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+}
+</script>
 
 	<script>
 var app = angular.module("licenseSharingApp", ["ngRoute"]);
