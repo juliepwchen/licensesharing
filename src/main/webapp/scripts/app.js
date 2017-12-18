@@ -34,7 +34,8 @@ function callGraphApi() {
     if (!user) {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
         // This will redirect user to the Azure Active Directory v2 Endpoint
-        userAgentApplication.loginRedirect(graphAPIScopes);
+        //userAgentApplication.loginRedirect(graphAPIScopes);
+        userAgentApplication.loginRedirect();
 
         // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
         // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call:
@@ -63,7 +64,7 @@ function callGraphApi() {
                 //After the access token is acquired, call the Web API, sending the acquired token
                 callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
 
-                var startclock_btn = $document[0].getElementById('startclock');
+                var startclock_btn = document.getElementById('startclock');
                 startclock_btn.style.display = 'none';
 
                 (function(){
