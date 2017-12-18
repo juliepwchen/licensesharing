@@ -3,6 +3,8 @@ var graphApiEndpoint = "https://graph.microsoft.com/v1.0/me";
 
 // Graph API scope used to obtain the access token to read user profile
 var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
+//var graphAPIScopes = ["https://graph.microsoft.com/beta/devpost@pwchen.onmicrosoft.com/assignLicense"];
+
 
 // Initialize application
 var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, null, loginCallback, {
@@ -35,6 +37,7 @@ function callGraphApi() {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
         // This will redirect user to the Azure Active Directory v2 Endpoint
         //userAgentApplication.loginRedirect(graphAPIScopes);
+        alert("inside callGraphApi... if !user");
         userAgentApplication.loginRedirect();
 
         // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
@@ -61,6 +64,8 @@ function callGraphApi() {
         // Try to acquire the token used to Query Graph API silently first
         userAgentApplication.acquireTokenSilent(graphAPIScopes)
             .then(function (token) {
+
+                alert(token);
                 //After the access token is acquired, call the Web API, sending the acquired token
                 callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
 
