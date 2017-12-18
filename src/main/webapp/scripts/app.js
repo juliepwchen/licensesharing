@@ -24,14 +24,6 @@ window.onload = function () {
     }
 }
 
-/**
- * Call the Microsoft Graph API and display the results on the page
- */
-function callGraphApi2(token) {
-
-  callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
-
-}
 
 /**
  * Call the Microsoft Graph API and display the results on the page
@@ -41,8 +33,7 @@ function callGraphApi() {
     if (!user) {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
         // This will redirect user to the Azure Active Directory v2 Endpoint
-        //userAgentApplication.loginRedirect(graphAPIScopes);
-        userAgentApplication.loginRedirect();
+        userAgentApplication.loginRedirect(graphAPIScopes);
 
         // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
         // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call:
@@ -126,7 +117,7 @@ function loginCallback(errorDesc, token, error, tokenType) {
 function callWebApiWithToken(endpoint, token, responseElement, showTokenElement) {
     var headers = new Headers();
     var bearer = "Bearer " + token;
-    headers.append("c", bearer);
+    headers.append("Authorization", bearer);
     var options = {
         method: "GET",
         headers: headers

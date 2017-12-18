@@ -22,9 +22,10 @@
 			<div class="card-block">
 				<p class="card-text">1) Click on "Start Clock" to start Timer.</p>
 				<p class="card-text">2) Log in to www.office.com.<p>
-				<p class="card-text">--  username = "devpost@pwchen.onmicrosoft.com"/password = "TesterHack3".</p>
+				<p class="card-text">--  username "devpost@pwchen.onmicrosoft.com"</p>
+				<p class="card-text">--  password "TesterHack3".</p>
 				<h4 class="card-title">License expires when clock stops.</h4>
-				<a href="#!timer" onclick="myFunction()" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
+				<a href="#!timer" class="btn btn-primary" id="startclock">Start Clock</a>
 			</div>
 		</div>
 
@@ -38,24 +39,17 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
-	<!-- script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script -->
-	<!-- script type="text/javascript" src="../scripts/msalconfig.js"></script -->
+	<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script>
+	<script type="text/javascript" src="../scripts/msalconfig.js"></script>
 
-	<!-- IE support: add promises polyfill before msal.js  -->
+	<!-- IE support: add promises polyfill before msal.js -->
 	<!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
 
-	<!-- script type="text/javascript" src="../scripts/app.js"></script -->
+	<script type="text/javascript" src="../scripts/app.js"></script>
 
-	<script src="../scripts/flipclock.js"></script>
-
-	<script>
-function myFunction() {
-    window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=100,width=00,height=600");
-}
-
-</script>
+	<!-- script src="../scripts/flipclock.js"></script -->
 
 	<script>
 var app = angular.module("licenseSharingApp", ["ngRoute"]);
@@ -68,68 +62,16 @@ app.config(function($routeProvider) {
     otherwise({ redirectTo: '/' });
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$http', function(sc, rs, hp) {
+app.controller("MainController", ['$scope', '$rootScope', '$http', $window, $document, function(sc, rs, hp, win, doc) {
 
-  var req = {
-     method: "POST",
-     url: "https://graph.microsoft.com/v1.0/users",
-     headers: {
-       'Content-type' : "application/json",
-       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6M01YTTdSVS1yLUFvOGN5bmJjRlRjVWJsd3N6bmJRLWd1eE1BMDlocWxBbTA4dk9RLWFFdm1teEROT3Zfel9FVlNNeTVnell1YlljYW04LTRHZU5fZENBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDY2MjM1LCJuYmYiOjE1MTM0NjYyMzUsImV4cCI6MTUxMzQ3MDEzNSwiYWlvIjoiWTJOZ1lOZys5OEFPNXZXWFBtZHNGamE3OFRYcU9nQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiNzdlU0oyTGoza09qdEZ4VUhHZ1VBQSIsInZlciI6IjEuMCJ9.fivYehOEfdcsWm_0w18gwK7AR4NzwVS3d3DBFb4T4liO-GqXfUtjmpkcZRE5OUp7tQTUL4aKCNFQ_C9o7dwNJ-5oErto00oczPazZiMCy71Tv96VMMFpqoJ0lrf_GbkVEvsja3SXzbATCwJX4rZ3Dftarb225o-NV0vVPqO6CwToZ65NsTAKriYOR2j45H1Mvqahtu0qj71otF-WqXD37xdRx9_MsEvylw4kQjxzhPHasJ_vUd_Dtg7YZfhIxTP6WXbz89je5x-FhnCu5mQhK1BGyAmKbdNa-eRpuWFtUiWn3Ub6loDdQix1Sy-wShpHZ7bh0jngOkvb8YZyVhM_BA"
-     },
-     data: {
-  		"accountEnabled": true,
-  		"city": "Mountain View",
-  		"country": "United States",
-  		"department": "Sales & Marketing",
-  		"displayName": "Hack Productivity 3",
-  		"givenName": "Hack",
-  		"jobTitle": "Marketing Director",
-  		"mailNickname": "Hack3",
-  		"passwordPolicies": "DisablePasswordExpiration",
-  		"passwordProfile": {
-    		"password": "Test1234",
-    		"forceChangePasswordNextSignIn": false
-  		},
-  		"officeLocation": "131/1105",
-  		"postalCode": "98052",
-  		"preferredLanguage": "en-US",
-  		"state": "CA",
-  		"streetAddress": "9256 Towne Center Dr., Suite 400",
-  		"surname": "Productivity",
-  		"mobilePhone": "+1 206 555 0110",
-  		"usageLocation": "US",
-  		"userPrincipalName": "Hack3@pwchen.onmicrosoft.com"
-	  }
-  };
+  var startclock_btn = doc[0].getElementById('startclock');
+  startclock_btn.style.display = 'none';
 
-  var req2 = {
-     method: "GET",
-     url: "https://graph.microsoft.com/v1.0/users/julie@pwchen.onmicrosoft.com",
-     headers: {
-       'Content-Type' : "application/json",
-       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6ekNYU0FGWWUtc3JlS3g1UVVEMm5DeVh5LVBnLVRzaU1jelNnbjZHSEh6T3ZCTHpFeUUwRW4yQ21kREZ4ZHBlNWJCN0VQYUtsY1hCN2hLNV9kTTdMUXlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNTEzNDg5MDIwLCJuYmYiOjE1MTM0ODkwMjAsImV4cCI6MTUxMzQ5MjkyMCwiYWlvIjoiWTJOZ1lIaDM0TVdSZzNkbTc3bHYxUHlqK2lkbkhnQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiVTVXVlNhWVc0RTZpUjQxcDJxZ1dBQSIsInZlciI6IjEuMCJ9.VneifnNHLCLx9gaCYAjd6MwJkoxmAFUFKhMFSzJHJppCzDRx260MOsR0oFx5KaK2Ots_j72T5t6k2HEhFD-KQ_EfTH03p5CW0lJk8V7hMFK9elh_zye5NM4Txev6JZbrKBoomT-EwygM3r8IScCU5qVbPoNzof-J53sdBps4lYW6crjwbXMRrzu5KHw8W2jreVl9jXHB6Mi3brRFnxiZGmaYeH5ISmRDZDMqUrmP78gYBLs_h0oT8ZFtkLQGzQt2vac953a3FmLlzSi0WQ1sxnm_EQ_ZgsX1qGJDRe6-_uUVty47MZzbRyKFx7tJDJIWOaleEClztn7R0m4mz1CVOg"
-     }
-  };
+  (function(){
+    win.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
+  }) ();
 
-  var req3 = {
-     method: "GET",
-     url: "https://graph.microsoft.com/v1.0/users",
-     headers: {
-       'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCSGg0a21TX2FLVDVYcmp6eFJBdEh6SE9wZ1Nyb0pydzlBVUtfSkQ2UzZhSW9IZ0hIVHJmd1hqcXRYRFE2Y3dmbXJMZmJ0SUdLR0tzdDc4aGxhV1BzZUhpMlFmcVFaekJoenVUMFo2d1EyQ1NBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIiwia2lkIjoieDQ3OHh5T3Bsc00xSDdOWGs3U3gxN3gxdXBjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwiaWF0IjoxNTEzNDY4OTAyLCJuYmYiOjE1MTM0Njg5MDIsImV4cCI6MTUxMzQ3MjgwMiwiYWlvIjoiWTJOZ1lMalA1V1dtYmJiNjJHVFh2QlBDSmV0L0FRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJMaWNlbnNlIFNoYXJlIiwiYXBwaWQiOiI1ZGU5OTU2My00ZWVjLTRjYzYtOTU5Yy04YWE0YTk3ZDBkNjkiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hMDkzNzU0Ni1mNmQ0LTQwZTAtYWEzMi1mN2MzN2M4MDFhNGYvIiwidGlkIjoiYTA5Mzc1NDYtZjZkNC00MGUwLWFhMzItZjdjMzdjODAxYTRmIiwidXRpIjoiVlVGdmdNOUc5MDI4RnBQSXluZ1ZBQSIsInZlciI6IjEuMCJ9.KFdynZf6LslaMBmbSuMIHnm47qi3ka6WITV0vkU00uM5bXWqj7h5N-MmT3RAYjc7G2jzD-kK1cSRJ9E0olVPKMWG9WqCOilEU_IRBlvTfg__tBw15L8sbWnd6Lg-xSXmvxJEJBooWV2Pfnw42T0ZD7k1e5Jk-fGv9C7QZ9dno_XsTv2tJanUHm5SpofJLx5eme_Q0kIO8KeaYCWEaa1h8cdlAak4TW9a2BvS2iI7K4U_kPnOX8ixLr87qy75OWPxKT_gwWRDB_ugRUANMi-6nUDv_J921ZqAvZpeDmJRDkElRFIjrW9AoAP8sY1fQIrZ7FV1zA5sX3O_WmJxkm3_CQ"
-     }
-  };
-
-  hp(req2)
-  .then(function successCallback(response) {
-
-    alert("Success!");
-    //callGraphApi2(response);
-
-  }, function errorCallback(response) {
-    alert("Error!");
-  });
-
+   callGraphApi();
 
 }]);
 
