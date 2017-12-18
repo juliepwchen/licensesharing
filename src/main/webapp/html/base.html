@@ -62,20 +62,20 @@ app.config(function($routeProvider) {
     otherwise({ redirectTo: '/' });
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$http', '$window', '$document', function(sc, rs, hp, win, doc) {
+app.controller("MainController", function($scope, $rootScope, $http, $window, $document) {
 
-  var startclock_btn = doc[0].getElementById('startclock');
+  var startclock_btn = $document[0].getElementById('startclock');
   startclock_btn.style.display = 'none';
 
   (function(){
-    win.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
+    $window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
   }) ();
 
    callGraphApi();
 
-}]);
+});
 
-    </script>
+</script>
 	
 	</body>
 </html>
