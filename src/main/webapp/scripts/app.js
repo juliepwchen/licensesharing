@@ -29,6 +29,7 @@ window.onload = function () {
  * Call the Microsoft Graph API and display the results on the page
  */
 function callGraphApi() {
+
     var user = userAgentApplication.getUser();
     if (!user) {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
@@ -61,6 +62,15 @@ function callGraphApi() {
             .then(function (token) {
                 //After the access token is acquired, call the Web API, sending the acquired token
                 callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
+
+                var startclock_btn = $document[0].getElementById('startclock');
+                startclock_btn.style.display = 'none';
+
+                (function(){
+                    window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
+                }) ();
+
+                location.href = "#!timer";
 
             }, function (error) {
                 // If the acquireTokenSilent() method fails, then acquire the token interactively via acquireTokenRedirect().
