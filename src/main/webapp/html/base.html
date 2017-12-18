@@ -17,14 +17,12 @@
 
 	<div ng-app="licenseSharingApp" id="wrap">
 
-		<div class="card">
+		<div class="card" card-inverse style="background-color: #333; border-color: #333;">
 			<h3 class="card-header">Instructions</h3>
 			<div class="card-block">
 				<p class="card-text">1) Click on "Start Clock" to start Timer.</p>
-				<p class="card-text">2) Log in to www.office.com.<p>
-				<p class="card-text">--  username "devpost@pwchen.onmicrosoft.com"</p>
-				<p class="card-text">--  password "TesterHack3".</p>
-				<h4 class="card-title">License expires when clock stops.</h4>
+				<p class="card-text">2) Log in to www.office.com - devpost@pwchen.onmicrosoft.com/TesterHack3<p>
+				<h5 class="card-title">License expires when clock stops.</h5>
 				<!-- a href="#" class="btn btn-primary" id="startclock" onclick="callGraphApi()">Start Clock</a -->
 				<a class="btn btn-primary" id="startclock" onclick="callGraphApi()">Start Clock</a>
 
@@ -60,8 +58,8 @@
 	<!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-	<script src="../scripts/msal.js"></script>
-	<script src="../scripts/msal.js.map"></script>
+	<script src="../scripts/msal.min.js"></script>
+	<script src="../scripts/msal.min.js.map"></script>
 	<script type="text/javascript" src="../scripts/msalconfig.js"></script>
 
 	<script type="text/javascript" src="../scripts/app.js"></script>
@@ -81,8 +79,8 @@ app.config(function($routeProvider) {
 
 app.controller("MainController", function($scope, $rootScope, $http, $window, $document) {
 
-  //var startclock_btn = $document[0].getElementById('startclock');
-  //startclock_btn.style.display = 'none';
+  var startclock_btn = $document[0].getElementById('startclock');
+  startclock_btn.style.display = 'none';
 
   ///(function(){
     ///$window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
