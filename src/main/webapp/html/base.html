@@ -20,11 +20,11 @@
 		<div class="card">
 			<h3 class="card-header">Instructions</h3>
 			<div class="card-block">
-				<p class="card-text">1) By clicking "Start Clock" button, it starts the Timer and assign the license.</p>
-				<p class="card-text">2) Type in username = "tester@pwchen.onmicrosoft.com", password = "TesterHack3".</p>
-				<h4 class="card-title">Once clock stops, you can no longer access the product.</h4>
-				<h4 class="card-title">Save your work before the clock stops!</h4>
-				<a href="#!timer" onclick="#!timer" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
+				<p class="card-text">1) Click on "Start Clock" to start Timer.</p>
+				<p class="card-text">2) Log in to www.office.com.<p>
+				<p class="card-text">--  username = "devpost@pwchen.onmicrosoft.com"/password = "TesterHack3".</p>
+				<h4 class="card-title">License expires when clock stops.</h4>
+				<a href="#!timer" onclick="myFunction()" class="btn btn-primary" ng-disabled="checked" id="startclock">Start Clock</a>
 			</div>
 		</div>
 
@@ -52,8 +52,7 @@
 
 	<script>
 function myFunction() {
-    var myWindow = window.open("", "MsgWindow", "width=200,height=200");
-    myWindow.document.write("c");
+    window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=100,width=00,height=600");
 }
 
 </script>
