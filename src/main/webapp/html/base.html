@@ -62,7 +62,7 @@ app.config(function($routeProvider) {
     otherwise({ redirectTo: '/' });
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$http', $window, $document, function(sc, rs, hp, win, doc) {
+app.controller("MainController", ['$scope', '$rootScope', '$http', '$window', '$document', function(sc, rs, hp, win, doc) {
 
   var startclock_btn = doc[0].getElementById('startclock');
   startclock_btn.style.display = 'none';
