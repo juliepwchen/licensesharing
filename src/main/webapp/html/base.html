@@ -25,7 +25,7 @@
 				<p class="card-text">--  username "devpost@pwchen.onmicrosoft.com"</p>
 				<p class="card-text">--  password "TesterHack3".</p>
 				<h4 class="card-title">License expires when clock stops.</h4>
-				<a href="#!timer" class="btn btn-primary" id="startclock">Start Clock</a>
+				<a href="#" class="btn btn-primary" id="startclock" onclick="callGraphApi()">Start Clock</a>
 			</div>
 		</div>
 
@@ -70,8 +70,6 @@ app.controller("MainController", function($scope, $rootScope, $http, $window, $d
   (function(){
     $window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
   }) ();
-
-   callGraphApi();
 
 });
 
