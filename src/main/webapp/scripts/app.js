@@ -37,8 +37,35 @@ function callGraphApi() {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
         // This will redirect user to the Azure Active Directory v2 Endpoint
         //userAgentApplication.loginRedirect(graphAPIScopes);
-        alert("inside callGraphApi... if !user");
+        //alert("inside callGraphApi... if !user");
         userAgentApplication.loginRedirect();
+
+        userAgentApplication.acquireTokenSilent(graphAPIScopes)
+                    .then(function (token) {
+
+                        alert(token);
+                        //After the access token is acquired, call the Web API, sending the acquired token
+                        callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
+
+                        var startclock_btn = document.getElementById('startclock');
+                        startclock_btn.style.display = 'none';
+
+                        (function(){
+                            window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
+                        }) ();
+
+                        location.href = "#!timer";
+
+                    }, function (error) {
+                        // If the acquireTokenSilent() method fails, then acquire the token interactively via acquireTokenRedirect().
+                        // In this case, the browser will redirect user back to the Azure Active Directory v2 Endpoint so the user
+                        // can re-type the current username and password and/ or give consent to new permissions your application is requesting.
+                        // After authentication/ authorization completes, this page will be reloaded again and callGraphApi() will be called.
+                        // Then, acquireTokenSilent will then acquire the token silently, the Graph API call results will be made and results will be displayed in the page.
+                        if (error) {
+                            userAgentApplication.acquireTokenRedirect(graphAPIScopes);
+                        }
+                    });
 
         // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
         // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call:
