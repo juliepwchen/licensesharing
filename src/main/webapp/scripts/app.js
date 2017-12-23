@@ -36,10 +36,10 @@ function callGraphApi() {
     if (!user) {
         // If user is not signed in, then prompt user to sign in via loginRedirect.
         // This will redirect user to the Azure Active Directory v2 Endpoint
-        //userAgentApplication.loginRedirect(graphAPIScopes);
+        userAgentApplication.loginRedirect(graphAPIScopes);
         //alert("inside callGraphApi... if !user");
 
-        userAgentApplication.loginRedirect();
+        //userAgentApplication.loginRedirect();
 
         // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
         // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call:
@@ -49,17 +49,17 @@ function callGraphApi() {
     } else {
 
         // If user is already signed in, display the user info
-        //var userInfoElement = document.getElementById("userInfo");
-        //userInfoElement.parentElement.classList.remove("hidden");
-        //userInfoElement.innerHTML = JSON.stringify(user, null, 4);
+        var userInfoElement = document.getElementById("userInfo");
+        userInfoElement.parentElement.classList.remove("hidden");
+        userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
         // Show Sign-Out button
-        //document.getElementById("signOutButton").classList.remove("hidden");
+        document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
-        //var graphCallResponseElement = document.getElementById("graphResponse");
-        //graphCallResponseElement.parentElement.classList.remove("hidden");
-        //graphCallResponseElement.innerText = "Calling Graph ...";
+        var graphCallResponseElement = document.getElementById("graphResponse");
+        graphCallResponseElement.parentElement.classList.remove("hidden");
+        graphCallResponseElement.innerText = "Calling Graph ...";
 
         // In order to call the Graph API, an access token needs to be acquired.
         // Try to acquire the token used to Query Graph API silently first
