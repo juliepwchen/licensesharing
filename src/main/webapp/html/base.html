@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="/html/base.html">
+	<!-- base href="/html/base.html" -->
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,8 +53,12 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+
+
+	<script src="../scripts/angular.min.js"></script>
+	<script src="../scripts/angular-route.min.js"></script>
+	<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script -->
 
 	<!-- IE support: add promises polyfill before msal.js -->
 	<!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
@@ -64,7 +68,6 @@
 	<script src="../scripts/msal.js.map"></script>
 
 	<script type="text/javascript" src="../scripts/msalconfig.js"></script>
-
 	<script type="text/javascript" src="../scripts/app.js"></script>
 
 
@@ -78,8 +81,8 @@
 var app = angular.module("licenseSharingApp", ["ngRoute", 'AdalAngular']);
 //app.config(['$httpProvider', '$locationProvider', $routeProvider, 'adalAuthenticationServiceProvider', function($httpProvider, $locationProvider,  $routeProvider, 'adalAuthenticationServiceProvider') {
 app.config(['$httpProvider', '$locationProvider', '$routeProvider', function($httpProvider, $locationProvider,  $routeProvider) {
-    $locationProvider.hashPrefix('');
-    $locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('');
+    //$locationProvider.html5Mode(true);
 
     $routeProvider
     .when("/timer", {
