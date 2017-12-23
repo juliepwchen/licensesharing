@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="/">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -76,7 +78,8 @@
 var app = angular.module("licenseSharingApp", ["ngRoute", 'AdalAngular']);
 //app.config(['$httpProvider', '$locationProvider', $routeProvider, 'adalAuthenticationServiceProvider', function($httpProvider, $locationProvider,  $routeProvider, 'adalAuthenticationServiceProvider') {
 app.config(['$httpProvider', '$locationProvider', '$routeProvider', function($httpProvider, $locationProvider,  $routeProvider) {
-    //$locationProvider.html5Mode(true).hashPrefix('!');
+    $locationProvider.hashPrefix('');
+    $locationProvider.html5Mode(true);
 
     $routeProvider
     .when("/timer", {
