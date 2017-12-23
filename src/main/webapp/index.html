@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+        <base href="/">
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   		
@@ -79,7 +82,10 @@
 
     <script>
   var app = angular.module("MainApp", ["ngRoute"]);
-  app.config(function($routeProvider) {
+  app.config(function($routeProvider, $locationProvider) {
+        $locationProvider.hashPrefix('');
+        $locationProvider.html5Mode(true);
+
         $routeProvider
         .when("/", {
           templateUrl : "html/main.html"
