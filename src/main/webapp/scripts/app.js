@@ -66,18 +66,18 @@ function callGraphApi() {
         userAgentApplication.acquireTokenSilent(graphAPIScopes)
             .then(function (token) {
 
-                alert(token);
+                //alert(token);
                 //After the access token is acquired, call the Web API, sending the acquired token
                 callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
 
-                var startclock_btn = document.getElementById('startclock');
-                startclock_btn.style.display = 'none';
+                //var startclock_btn = document.getElementById('startclock');
+                //startclock_btn.style.display = 'none';
 
-                (function(){
-                    window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
-                }) ();
+                //(function(){
+                    //window.open("https://www.office.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=80,left=100,width=700,height=500");
+                //}) ();
 
-                location.href = "#!timer";
+                //location.href = "#!timer";
 
             }, function (error) {
                 // If the acquireTokenSilent() method fails, then acquire the token interactively via acquireTokenRedirect().
@@ -117,8 +117,8 @@ function showError(endpoint, error, errorDesc) {
  */
 function loginCallback(errorDesc, token, error, tokenType) {
     if (errorDesc) {
-        alert ('Login Error!');
-        location.href = "#!timer";
+        //alert ('Login Error!');
+        //location.href = "#!timer";
         showError(msal.authority, error, errorDesc);
     } else {
         callGraphApi();
